@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: salary-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: salary-api
+  template:
+    metadata:
+      labels:
+        app: salary-api
+    spec:
+      containers:
+        - name: salary-api
+          image: salary-api:1.0
+          imagePullPolicy: IfNotPresent # minikube'ün local image'ı kullanmasını sağlar
+          ports:
+            - containerPort: 8000

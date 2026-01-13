@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: salary-api-svc
+spec:
+  selector:
+    app: salary-api
+  ports:
+    - port: 8000
+      targetPort: 8000
+  type: NodePort # local cluster için
