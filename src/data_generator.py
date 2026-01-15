@@ -1,5 +1,8 @@
 import pandas as pd
 import numpy as np
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 data = {
     'years_experience': np.random.randint(1, 20, 1000),
@@ -18,4 +21,6 @@ df['salary'] += df['education_level'].map({'Bachelor': 0, 'Master': 5000, 'PhD':
 
 df['salary'] += np.random.normal(0, 2000, 1000)
 
-df.to_csv('/Users/busekoseoglu/Desktop/PROJELER/tech_talk_model_deployment/data/raw_data.csv', index=False)
+DATA_PATH = BASE_DIR / "data" / "raw_data.csv"
+
+df.to_csv(DATA_PATH, index=False)
